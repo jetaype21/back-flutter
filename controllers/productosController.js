@@ -63,6 +63,8 @@ var controller = {
           producto.precioInitial = req.body.precioInitial;
           producto.name = req.body.name;
           producto.img = req.body.img;
+          producto.categoria = req.body.categoria;
+          producto.estado = req.body.estado;
 
           db.collection("productos").insertOne(producto, (error, result) => {
             if (error) {
@@ -88,7 +90,9 @@ var controller = {
       producto.pecio = req.body.precio;
       producto.precioInitial = req.body.precioInitial;
       producto.name = req.body.name;
-      producto.img = req.body.imagen;
+      producto.img = req.body.img;
+      producto.categoria = req.body.categoria;
+      producto.estado = req.body.estado;
 
       console.log(producto);
 

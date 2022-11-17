@@ -56,19 +56,20 @@ var controller = {
       db.collection("clientes")
         .count()
         .then((countClientes) => {
-
           var cliente = {};
 
           cliente.clienteId = countClientes + 1;
           cliente.fecha = req.body.fecha;
           cliente.product = req.body.product;
           cliente.total = req.body.total;
+          cliente.categoria = req.body.categoria;
+          cliente.estado = req.body.estado;
 
           db.collection("clientes").insertOne(cliente, (error, result) => {
             if (error) {
               {
                 return res.status(404).send({
-                  message: "No se pudo registrar el proudcto",
+                  message: "No se pudo registrar el cliente",
                 });
               }
             } else {
@@ -89,6 +90,8 @@ var controller = {
       cliente.fecha = req.body.fecha;
       cliente.product = req.body.product;
       cliente.total = req.body.total;
+      cliente.categoria = req.body.categoria;
+      cliente.estado = req.body.estado;
 
       console.log(cliente);
 

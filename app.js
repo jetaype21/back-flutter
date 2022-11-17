@@ -1,17 +1,18 @@
-'use strict'
+"use strict";
 // requires
-const express = require('express');
-const bodyParser = require('body-parser');
+const express = require("express");
+const bodyParser = require("body-parser");
 
 // ejecutar expres
 var app = express();
 
 // cargar los archivps
 var productosRouter = require("./routes/productos");
+var reporte_routes = require("./routes/reporte");
 
 // midlewars
-app.use(bodyParser.urlencoded({ extends: false }))
-app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extends: false }));
+app.use(bodyParser.json());
 
 // configurar cors
 app.use((req, res, next) => {
@@ -26,6 +27,7 @@ app.use((req, res, next) => {
 });
 
 // reescribir rutas
-app.use('/api', productosRouter)
+app.use("/api", productosRouter);
+app.use("/api", reporte_routes);
 // exportat modulo
-module.exports = app
+module.exports = app;

@@ -61,6 +61,8 @@ var controller = {
           proveedor.fecha = req.body.fecha;
           proveedor.product = req.body.product;
           proveedor.total = req.body.total;
+          proveedor.categoria = req.body.categoria;
+          proveedor.estado = req.body.estado;
 
           db.collection("proveedores").insertOne(proveedor, (error, result) => {
             if (error) {
@@ -82,10 +84,12 @@ var controller = {
       console.log("Entrando a editar");
 
       var proveedor = {};
-          proveedor.proveedorId = countProveedores + 1;
+          proveedor.proveedorId = parseInt(req.body.proveedorId);
           proveedor.fecha = req.body.fecha;
           proveedor.product = req.body.product;
           proveedor.total = req.body.total;
+          proveedor.categoria = req.body.categoria;
+          proveedor.estado = req.body.estado;
       console.log(proveedor);
 
       db.collection("proveedores").updateOne(
@@ -98,7 +102,7 @@ var controller = {
             });
           } else {
             return res.status(200).send({
-              message: "No se pudo editar",
+              message: "se pudo editar",
               proveedor: result,
             });
           }
