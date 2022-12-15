@@ -6,7 +6,7 @@ var mongoose = require('mongoose');
 const app = require('./app');
 
 // SERVIDOR
-var port = process.env.PORT || 8000
+var port = process.env.PORT || 7000
 
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb+srv://taype:taype@certus.cqbczub.mongodb.net/?retryWrites=true&w=majority', {
